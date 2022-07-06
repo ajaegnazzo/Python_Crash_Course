@@ -1,6 +1,6 @@
 #Settings for alien_invasion
 class Settings:
-    """A class to store all settings for Alien Invasion."""
+    """A class to store all settings for the Rocket Game."""
 
     def __init__(self):
         """Initialize the game's settings."""
@@ -11,4 +11,4 @@ class Settings:
         self.bg_color = (230, 230, 230)
 
         # Ship settings
-        self.ship_speed = 1.5
+        self.rocket_speed = 1.5
