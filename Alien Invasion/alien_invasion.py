@@ -27,6 +27,7 @@ class AlienInvasion:
         """Start the main loop for the game."""
         while True:
             self._check_events() #this is going to check the check events method
+            self.ship.update() #ship's position is updated after there has been a check for keyboard events and before the screen is updated
             self._update_screen() #checking update screen below
     
     def _check_events(self): #moved this method down to separate
@@ -34,6 +35,17 @@ class AlienInvasion:
         for event in pygame.event.get(): #event is an action performed in the game
                 if event.type == pygame.QUIT:
                     sys.exit()
+                elif event.type == pygame.KEYDOWN: #this detects when there is a "keydown" event
+                    if event.key == pygame.K_RIGHT: #this is when the right arrow key is pressed
+                        self.ship.moving_right = True #now we are saying rather than move right by 1, we just flag that it is moving right
+                    elif event.key == pygame.K_LEFT:
+                        self.ship.moving_left = True
+
+                elif event.type == pygame.KEYUP: #when the key is no longer pressed, the ship is no longer moving right!
+                    if event.key == pygame.K_RIGHT:
+                        self.ship.moving_right = False
+                    elif event.key == pygame.K_LEFT:
+                        self.ship.moving_left = False
 
     def _update_screen(self):
         """Update images on teh screen, and flip to the new screen."""
