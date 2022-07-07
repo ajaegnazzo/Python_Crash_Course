@@ -1,4 +1,5 @@
 #Settings for alien_invasion
+
 class Settings:
     """A class to store all settings for the Rocket Game."""
 
